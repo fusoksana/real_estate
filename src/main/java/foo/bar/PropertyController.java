@@ -11,11 +11,11 @@ import java.util.List;
 public class PropertyController {
 
     @Autowired
-    private PropertyService propService;
+    private PropertyService propertyService;
 
     @RequestMapping("/proreties")
     public List<Property> showProperties() {
-        List<Property> lp = propService.getPropertyList();
+        List<Property> lp = propertyService.getPropertyList();
         return lp;
     }
 

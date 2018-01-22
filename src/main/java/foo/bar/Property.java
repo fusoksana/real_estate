@@ -1,50 +1,68 @@
 package foo.bar;
 
-/**
- * Created by yurko on 12.01.18.
- */
+import javax.persistence.*;
+@Entity
+@Table(name = "properties")
 public class Property {
+    @Id
+    private  int id;
+    @Column(name="location")
     private String location;
-    private  int numberOfRoom;
+    @Column(name="number_of_rooms")
+    private  int numberOfRooms;
+    @Column(name="square")
     private  int square;
+    @Column(name="price")
     private  long price;
 
-    public Property(String location, int numberOfRoom, int square,long price) {
-        this.location = location;
-        this.numberOfRoom = numberOfRoom;
-        this.square = square;
-        this.price=price;
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setNumberOfRooms(int numberOfRooms) {
+        this.numberOfRooms = numberOfRooms;
+    }
+
+    public void setSquare(int square) {
+        this.square = square;
+    }
+
+    public void setPrice(long price) {
+        this.price = price;
+    }
+    public Property(){
+
+    }
+
+    public Property(int id, String location, int numberOfRooms, int square, long price) {
+        this.id = id;
+        this.location = location;
+        this.numberOfRooms = numberOfRooms;
+        this.square = square;
+        this.price = price;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public int getNumberOfRoom() {
-        return numberOfRoom;
+    public int getNumberOfRooms() {
+        return numberOfRooms;
     }
 
     public int getSquare() {
         return square;
     }
+
     public long getPrice() {
         return price;
-    }
-
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setNumberOfRoom(int numberOfRoom) {
-        this.numberOfRoom = numberOfRoom;
-    }
-
-    public void setSquare(int square) {
-        this.square = square;
-    }
-    public void setPrice(long price) {
-        this.price = price;
     }
 }

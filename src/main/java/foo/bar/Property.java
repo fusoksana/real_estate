@@ -1,6 +1,9 @@
 package foo.bar;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "properties")
 public class Property {
@@ -14,6 +17,13 @@ public class Property {
     private  int square;
     @Column(name="price")
     private  long price;
+    @ManyToMany(cascade ={CascadeType.ALL} )
+    @JoinTable(
+            name = "property_option",
+            joinColumns = {@JoinColumn(name = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "option_id")}
+    )
+     private Set<Option> optionsSet=new HashSet<>();
 
     public void setId(int id) {
         this.id = id;
@@ -34,16 +44,8 @@ public class Property {
     public void setPrice(long price) {
         this.price = price;
     }
-    public Property(){
-
-    }
-
-    public Property(int id, String location, int numberOfRooms, int square, long price) {
-        this.id = id;
-        this.location = location;
-        this.numberOfRooms = numberOfRooms;
-        this.square = square;
-        this.price = price;
+    public void setOptionsSet(Set<Option> optionsSet){
+        this.optionsSet=optionsSet;
     }
 
     public int getId() {
@@ -64,5 +66,21 @@ public class Property {
 
     public long getPrice() {
         return price;
+    }
+    public Set<Option> getOptionsSet(){
+        return  optionsSet;
+    }
+
+    public Property(){
+
+    }
+
+    public Property(int id, String location, int numberOfRooms, int square, long price,Set<Option> optionsSet) {
+        this.id = id;
+        this.location = location;
+        this.numberOfRooms = numberOfRooms;
+        this.square = square;
+        this.price = price;
+        this.optionsSet=optionsSet;
     }
 }

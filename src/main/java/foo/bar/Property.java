@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name = "properties")
 public class Property {
     @Id
-    private  int id;
+    private  long id;
     @Column(name="location")
     private String location;
     @Column(name="number_of_rooms")
@@ -25,7 +25,7 @@ public class Property {
     )
      private Set<Option> optionsSet=new HashSet<>();
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -48,7 +48,7 @@ public class Property {
         this.optionsSet=optionsSet;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -75,7 +75,7 @@ public class Property {
 
     }
 
-    public Property(int id, String location, int numberOfRooms, int square, long price,Set<Option> optionsSet) {
+    public Property(long id, String location, int numberOfRooms, int square, long price,Set<Option> optionsSet) {
         this.id = id;
         this.location = location;
         this.numberOfRooms = numberOfRooms;

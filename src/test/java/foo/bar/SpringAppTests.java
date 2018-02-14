@@ -13,8 +13,5 @@ public class SpringAppTests {
     @Autowired
     private PropertyService propertyService;
 
-    @Test
-    public void testSayHello() {
-        Assert.assertEquals("Hello world!", propertyService.getPropertyList());
-    }
+
 }
